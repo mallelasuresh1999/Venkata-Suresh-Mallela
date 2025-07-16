@@ -138,3 +138,7 @@ html {
   background-size: 400% 400%;
   animation: gradient-animation 10s ease infinite;
 }
+
+.visually-hidden {
+  display: none;
+}
