@@ -54,7 +54,7 @@ const Hero = () => {
             href="#projects"
             className="inline-block bg-gradient-to-r from-blue-600 to-blue-800 text-white px-10 py-4 rounded-full hover:from-blue-700 hover:to-blue-900 transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
           >
-            Explore My Work
+          
           </a>
         </div>
       </div>
