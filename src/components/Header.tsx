@@ -30,12 +30,18 @@ const Header = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <a
-            href="#home"
-            className="text-xl font-bold text-blue-400 hover:text-blue-300 transition-colors"
-          >
-            My Portfolio
-          </a>
+          <div className="flex items-center space-x-3">
+            <div className="bg-purple-900 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg">
+              VM
+            </div>
+            {/* Updated Venkata Text */}
+            <a
+              href="#contact"
+              className="font-bold text-lg text-white hover:text-blue-300 transition-all duration-300 glow"
+            >
+              Venkata
+            </a>
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
@@ -76,6 +82,8 @@ const Header = () => {
           </nav>
         )}
       </div>
+
+      {/* Custom Glow Effect Style */}
     </header>
   );
 };
