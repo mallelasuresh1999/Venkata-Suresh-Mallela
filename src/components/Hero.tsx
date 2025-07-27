@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   ChevronDown,
   Code,
@@ -16,7 +15,7 @@ const devOpsIcons = [GitBranch, Github,GitCommit];
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen bg-gradient-to-b from-[#1f121d] via-[#000000] to-[#00005c] text-white flex flex-row items-center justify-center px-6 py-16 overflow-hidden">
+    <section className="relative min-h-screen bg-gradient-to-b from-[#231f60] via-[#1a1528] to-[rgb(17,24,39)] text-white flex flex-row items-center justify-center px-6 py-16 overflow-hidden">
 
       {/* Floating Lucide Icons */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -65,10 +64,10 @@ const Hero = () => {
         </p>
 
         <a
-          href="#projects"
+          href="#skills"
           className="bg-blue-600 hover:bg-blue-800 text-white px-8 py-4 rounded-md font-semibold text-lg shadow-md transition"
         >
-          Explore My Work →
+          Know My work→
         </a>
       </div>
 

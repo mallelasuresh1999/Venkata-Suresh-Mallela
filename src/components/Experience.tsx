@@ -1,60 +1,77 @@
-import React from 'react';
 import { Briefcase, Calendar, MapPin } from 'lucide-react';
+
+const roleTimeline = [
+  {
+    title: 'Software Engineer',
+    duration: 'Jan 2025 - Present',
+    location: 'Hyderabad, India',
+    description: 'Continuing the role after returning from the Netherlands on-site assignment.',
+  },
+  {
+    title: 'Software Engineer (On-site - KPN)',
+    duration: 'Jul 2024 - Dec 2024',
+    location: 'Amsterdam, Netherlands',
+    description: 'Worked on-site at KPN via Tech Mahindra as part of a client engagement.',
+  },
+  {
+    title: 'Software Engineer',
+    duration: 'Jan 2023 - Jun 2024',
+    location: 'Hyderabad, India',
+    description: 'Promoted and relocated from Bangalore to Hyderabad.',
+  },
+  {
+    title: 'Associate Software Engineer',
+    duration: 'Dec 2021 - Dec 2022',
+    location: 'Bangalore, India',
+    description: 'Started career with Tech Mahindra as an Associate Software Engineer.',
+  },
+];
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-20 bg-gray-800 relative">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent)]"></div>
-      
-      <div className="container mx-auto px-4 relative">
-        <h2 className="text-3xl font-bold text-center mb-12 text-white">Experience</h2>
-        
-        <div className="max-w-4xl mx-auto">
-          <div className="relative pl-8 border-l-2 border-blue-400">
-            <div className="mb-12 relative">
-              <div className="absolute -left-[41px] bg-gray-800 p-2 rounded-full border-2 border-blue-400">
-                <Briefcase className="w-6 h-6 text-blue-400" />
-              </div>
-              
-              <div className="bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl hover:bg-gray-900/70 transition-colors duration-300 transform hover:scale-[1.02] hover:shadow-xl">
-                <div className="flex flex-wrap gap-4 items-center mb-4">
-                  <h3 className="text-xl font-semibold text-white">Software Design Engineer</h3>
-                  <div className="flex items-center text-gray-400 text-sm">
-                    <Calendar className="w-4 h-4 mr-1" />
-                    <span>August 2022 - Present</span>
-                  </div>
-                  <div className="flex items-center text-gray-400 text-sm">
-                    <MapPin className="w-4 h-4 mr-1" />
-                    <span>WinWire Technologies, Hyderabad</span>
-                  </div>
-                </div>
-                
-                <div className="space-y-4">
-                  {[
-                    {
-                      title: 'BT Labels Project',
-                      description: 'Led enhancements and bug fixes in the library services domain as an Angular and .NET developer.'
-                    },
-                    {
-                      title: 'Gen AI ChatGPT Project',
-                      description: 'Delivered UI improvements and resolved critical issues as a React developer, while directly engaging with clients to ensure project success.'
-                    },
-                    {
-                      title: 'Internal Initiatives',
-                      description: 'Contributed to internal tools like Bootstrap development and conducted GitHub Copilot analysis to optimize development workflows.'
-                    }
-                  ].map((project, index) => (
-                    <div
-                      key={index}
-                      className="bg-gray-800/50 p-4 rounded-lg hover:bg-gray-800 transition-colors duration-300"
-                    >
-                      <h4 className="text-blue-400 font-medium mb-2">{project.title}</h4>
-                      <p className="text-gray-300">{project.description}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
+    <section id="experience" className="py-24 bg-gray-900 relative overflow-hidden">
+      {/* Glow Background */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-1/4 left-1/2 w-[800px] h-[800px] bg-blue-500 rounded-full opacity-10 blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-purple-500 rounded-full opacity-10 blur-2xl transform translate-x-1/2 translate-y-1/2"></div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <h2 className="text-4xl font-bold text-center text-white mb-16 drop-shadow-md">
+          Experience
+        </h2>
+
+        <div className="max-w-4xl mx-auto bg-gray-800/80 backdrop-blur-md p-8 rounded-2xl shadow-lg border border-gray-700 hover:shadow-blue-500/30 transition-all">
+          <div className="flex items-center gap-4 mb-4">
+            <Briefcase className="text-blue-400 w-6 h-6" />
+            <div>
+              <h3 className="text-2xl font-semibold text-white">Tech Mahindra</h3>
+              <p className="text-sm text-gray-400">Dec 2021 - Present</p>
             </div>
+          </div>
+
+          <div className="border-l-2 border-blue-500 pl-6 mt-6 space-y-10">
+            {roleTimeline.map((role, index) => (
+              <div key={index} className="relative group">
+                {/* Timeline Dot */}
+                <span className="absolute -left-[17px] top-2 w-4 h-4 bg-blue-400 rounded-full shadow-lg group-hover:scale-110 transition-transform" />
+
+                <div className="bg-gray-900/70 p-4 rounded-xl shadow-md hover:shadow-lg hover:border-blue-400 border border-transparent transition-all">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-2 gap-2">
+                    <h4 className="text-lg font-semibold text-white">{role.title}</h4>
+                    <div className="flex items-center text-sm text-gray-400">
+                      <Calendar className="w-4 h-4 mr-1" />
+                      {role.duration}
+                    </div>
+                  </div>
+                  <div className="flex items-center text-sm text-gray-400 mb-1">
+                    <MapPin className="w-4 h-4 mr-1" />
+                    {role.location}
+                  </div>
+                  <p className="text-gray-300">{role.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -62,4 +79,4 @@ const Experience = () => {
   );
 };
 
-export default Experience
+export default Experience;
