@@ -7,11 +7,10 @@ import {
   Database,
   GitBranch,
   GitCommit,
-  Github,
 } from "lucide-react";
 
 const floatingIcons = [Code, Terminal, Cloud, Server, Database];
-const devOpsIcons = [GitBranch, Github, GitCommit];
+const devOpsIcons = [GitBranch, GitCommit];
 
 const Hero = () => {
   return (
@@ -66,14 +65,6 @@ const Hero = () => {
         >
           Know My work →
         </a>
-      </div>
-
-      {/* Avatar Right Side */}
-      <div className="relative z-10 w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 flex-shrink-0">
-        <div className="absolute inset-0 rounded-full border-[6px] border-gradient-to-tr from-red-400 via-blue-500 to-green-400 animate-gradient-spin blur-md opacity-50"></div>
-        <div className="w-full h-full bg-gradient-to-br from-green-400 to-blue-600 rounded-full flex items-center justify-center font-bold text-white text-3xl sm:text-4xl shadow-xl border-4 border-white">
-          VM
-        </div>
       </div>
 
       {/* Scroll Indicator */}
