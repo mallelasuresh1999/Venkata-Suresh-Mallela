@@ -1,57 +1,16 @@
+import { ChevronDown } from "lucide-react";
 import {
-  ChevronDown,
-  Code,
-  Terminal,
-  Cloud,
-  Server,
-  Database,
-  GitBranch,
-  GitCommit,
-} from "lucide-react";
+  FaWhatsapp,
+  FaLinkedin,
+  FaXTwitter,
+} from "react-icons/fa6";
 
-const floatingIcons = [Code, Terminal, Cloud, Server, Database];
-const devOpsIcons = [GitBranch, GitCommit];
 
 const Hero = () => {
   return (
     <section className="relative min-h-screen bg-gradient-to-b from-[#231f60] via-[#1a1528] to-gray-900 text-white px-6 py-20 overflow-hidden flex flex-col md:flex-row items-center justify-center gap-10">
-      
-      {/* Floating Icons */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        {floatingIcons.map((Icon, index) => (
-          <div
-            key={index}
-            className="absolute animate-float"
-            style={{
-              top: `${Math.random() * 90}%`,
-              left: `${Math.random() * 90}%`,
-              animationDelay: `${index * 0.5}s`,
-              transform: `scale(${0.8 + Math.random() * 0.4})`,
-            }}
-          >
-            <Icon className="w-5 h-5 md:w-6 md:h-6 text-blue-400 opacity-20" />
-          </div>
-        ))}
 
-        {devOpsIcons.map((Icon, idx) => (
-          <div
-            key={idx}
-            className="absolute opacity-10 text-white"
-            style={{
-              top: `${15 + idx * 15}%`,
-              left: `${20 + idx * 12}%`,
-              width: "30px",
-              height: "30px",
-              filter: "drop-shadow(0 0 2px rgba(255,255,255,0.1))",
-              pointerEvents: "none",
-            }}
-          >
-            <Icon className="w-full h-full" />
-          </div>
-        ))}
-      </div>
-
-      {/* Left Text Content */}
+      {/* Left Content */}
       <div className="z-10 text-center md:text-left max-w-2xl w-full md:w-3/5">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 drop-shadow-lg">
           Venkata Suresh Mallela
@@ -59,13 +18,38 @@ const Hero = () => {
         <p className="text-blue-300 text-base sm:text-lg md:text-xl mb-6 drop-shadow-md">
           DevOps Engineer focused on automation, infrastructure, and scalable cloud platforms.
         </p>
-        <a
-          href="#skills"
-          className="inline-block bg-blue-600 hover:bg-blue-800 text-white px-6 py-3 rounded-md font-semibold text-base sm:text-lg shadow-md transition"
-        >
-          Know My work →
-        </a>
+
+        {/* Buttons */}
+        <div className="flex flex-col sm:flex-row items-center gap-4 mb-6">
+          <a
+            href="#skills"
+            className="bg-blue-600 hover:bg-blue-800 text-white px-6 py-3 rounded-md font-semibold text-base sm:text-lg shadow-md transition"
+          >
+            More About Me
+          </a>
+          <a
+            href="" // Replace with your actual CV path
+            download
+            className="bg-gray-700 hover:bg-gray-900 text-white px-6 py-3 rounded-md font-semibold text-base sm:text-lg shadow-md transition"
+          >
+            Download CV
+          </a>
+        </div>
+
+        {/* Social Icons */}
+        <div className="flex gap-6 justify-center md:justify-start text-2xl text-blue-300">
+          <a href="https://wa.me/9550814819" target="_blank" rel="noopener noreferrer">
+            <FaWhatsapp className="hover:text-green-400 transition" />
+          </a>
+          <a href="https://www.linkedin.com/in/venkata-suresh" target="_blank" rel="noopener noreferrer">
+            <FaLinkedin className="hover:text-blue-500 transition" />
+          </a>
+          <a href="https://x.com/" target="_blank" rel="noopener noreferrer">
+            <FaXTwitter className="hover:text-white transition" />
+          </a>
+        </div>
       </div>
+
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-blue-300 text-sm text-center z-10">

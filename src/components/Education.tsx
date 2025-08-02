@@ -16,8 +16,8 @@ const Education = () => {
             <div className="bg-white p-6 rounded-xl border border-indigo-200 shadow-glow-indigo w-full">
               <h3 className="text-2xl font-semibold text-indigo-800">Bachelor of Technology</h3>
               <h3 className="text-gray-700">Information Technology</h3>
-              <p className="text-gray-600">Usha Rama College Of Engineering and Technology, Vijayawada, India</p>
-              <p className="text-gray-500">Jawaharlal Nehru Technological University, India</p>
+              <p className="text-indigo-600">Usha Rama College Of Engineering and Technology, Vijayawada.</p>
+              <p className="text-blue-500">Jawaharlal Nehru Technological University, India.</p>
               <p className="text-sm text-gray-400">2017 - 2021</p>
             </div>
           </div>

@@ -93,6 +93,25 @@ html {
   }
 }
 
+.glow-wrapper {
+  position: relative;
+  border-radius: 1rem; /* slightly curved corners for the wrapper */
+  padding: 1px;
+  background: linear-gradient(135deg, #00ffff, #8a2be2);
+  box-shadow: 0 0 40px #00ffff66, 0 0 60px #8a2be266, 0 0 90px #00ffff33;
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 40px #00ffff66, 0 0 60px #8a2be266, 0 0 90px #00ffff33;
+  }
+  50% {
+    box-shadow: 0 0 50px #00ffffaa, 0 0 70px #8a2be2aa, 0 0 110px #00ffff55;
+  }
+}
+
+
 
 .section-transition {
   opacity: 0;
@@ -115,21 +134,6 @@ html {
     background-color: rgb(17 24 39 / var(--tw-bg-opacity, 1)) /* #111827 */;
 }
 
-.about-image {
-  width: 100%;
-  max-width: 25rem;
-  object-fit: contain;
-  background: transparent;
-  filter: drop-shadow(0 0 12px rgba(14, 189, 40, 0.75));
-  transition: transform 0.50s ease, filter 0.3s ease;
-  border-radius: 2rem;
-}
-
-.about-image:hover {
-  transform: scale(1.05);
-  opacity: 1;
-  filter: drop-shadow(0 0 8px rgb(172, 14, 14));
-}
 
 @keyframes glow {
   0%, 100% {
