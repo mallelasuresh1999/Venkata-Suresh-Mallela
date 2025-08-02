@@ -162,11 +162,6 @@ const Contact = () => {
           <Coffee className="w-6 h-6 text-red" />
         </div>
       </div>
-      <div className="absolute top-4 left-4 z-50">
-        <div className="p-3 bg-white/20 backdrop-blur-md rounded-full shadow-lg hover:scale-105 transition duration-300">
-          <Coffee className="w-6 h-6 text-white" />
-        </div>
-      </div>
     </section>
   );
 };

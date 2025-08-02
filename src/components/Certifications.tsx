@@ -21,19 +21,29 @@ const CertificationCard = ({ title, issuer, date }: { title: string; issuer: str
 const Certifications = () => {
   const certifications = [
     {
-      title: 'AWS Cloud Practitioner',
-      issuer: 'AWS',
-      date: 'Issued: October 2023',
-    },
-    {
       title: 'AWS Cloud SysOps Administrator',
       issuer: 'AWS',
       date: 'Issued: June 2024',
     },
     {
-      title: 'DevOps Engineer',
-      issuer: 'Front Lines Media',
-      date: 'Issued: July 2024',
+      title: 'AWS Cloud Practitioner',
+      issuer: 'AWS',
+      date: 'Issued: October 2023',
+    },
+    {
+      title: 'Bravo Award',
+      issuer: 'Tech Mahindra',
+      date: 'Issued: September 2023',
+    },
+    {
+      title: 'AQT Ninja',
+      issuer: 'Tech Mahindra',
+      date: 'Issued: Feb 2023',
+    },
+    {
+      title: 'DevOps Tools',
+      issuer: 'Udemy',
+      date: 'Issued: May 2022',
     }
   ];
 
