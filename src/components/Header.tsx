@@ -46,7 +46,7 @@ const Header = () => {
           {/* Logo */}
           <a
             href="#contact"
-            onClick={(e) => handleNavClick(e, "#contact")}
+            onClick={(e) => handleNavClick(e, "#home")}
             className="text-lg font-extrabold flex items-center space-x-1 cursor-pointer"
           >
             <span className="text-white text-2xl">V</span>

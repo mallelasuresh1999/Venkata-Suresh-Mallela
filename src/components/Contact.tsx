@@ -13,6 +13,10 @@ const Contact = () => {
     message: ''
   });
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formRef.current) return;
@@ -20,25 +24,21 @@ const Contact = () => {
     try {
       setIsSubmitting(true);
 
+      // Sending form data via EmailJS
       const result = await emailjs.sendForm(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID as string,
-        process.env.REACT_APP_EMAILJS_TEMPLATE_ID as string,
+        process.env.REACT_APP_EMAILJS_SERVICE_ID!,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID!,
         formRef.current,
-        process.env.REACT_APP_EMAILJS_PUBLIC_KEY as string
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY!
       );
 
       if (result.text === 'OK') {
-        toast.success('Message sent successfully!');
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          message: ''
-        });
+        toast.success('Your message has been sent! I’ll get back to you soon.');
+        setFormData({ firstName: '', lastName: '', email: '', message: '' });
       }
     } catch (error) {
-      toast.error('Failed to send message. Please try again.');
-      console.error('Email send error:', error);
+      toast.error('Oops! Something went wrong. Please try again.');
+      console.error('EmailJS Error:', error);
     } finally {
       setIsSubmitting(false);
     }
@@ -52,7 +52,7 @@ const Contact = () => {
       <Toaster position="top-right" />
 
       <div className="w-full max-w-6xl grid md:grid-cols-2 gap-8 items-stretch">
-        {/* Left Contact Info Section */}
+        {/* Left Contact Info */}
         <div className="text-white flex flex-col justify-center space-y-6">
           <h2 className="text-3xl font-bold">Get in Touch</h2>
 
@@ -68,41 +68,37 @@ const Contact = () => {
             <MapPin className="w-5 h-5 text-blue-300" />
             <span>Hyderabad, India</span>
           </div>
-
-          
         </div>
 
-        {/* Right Form Section with Glass Effect */}
+        {/* Right Form */}
         <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-xl p-8 shadow-lg text-white">
-          <h2 className="text-2xl font-semibold mb-6">Send us a message</h2>
+          <h2 className="text-2xl font-semibold mb-6">Send me a message</h2>
 
           <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
             <div className="flex gap-4">
               <div className="w-1/2">
-                <label htmlFor="firstName" className="block text-sm mb-1">
-                  Name <span className="text-red-300">*</span>
+                <label className="block text-sm mb-1">
+                  First Name <span className="text-red-300">*</span>
                 </label>
                 <input
                   type="text"
-                  id="firstName"
-                  name="first_name"
+                  name="firstName"
                   required
                   value={formData.firstName}
-                  onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                  onChange={handleChange}
                   className="w-full px-4 py-2 rounded-md bg-white/20 border border-white/30 text-white placeholder:text-white/70 focus:outline-none focus:ring-2 focus:ring-blue-300"
                   placeholder="First"
                 />
               </div>
               <div className="w-1/2">
-                <label htmlFor="lastName" className="block text-sm mb-1 invisible">
-                  Last
+                <label className="block text-sm mb-1">
+                  Last Name
                 </label>
                 <input
                   type="text"
-                  id="lastName"
-                  name="last_name"
+                  name="lastName"
                   value={formData.lastName}
-                  onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                  onChange={handleChange}
                   className="w-full px-4 py-2 rounded-md bg-white/20 border border-white/30 text-white placeholder:text-white/70 focus:outline-none focus:ring-2 focus:ring-blue-300"
                   placeholder="Last"
                 />
@@ -110,44 +106,42 @@ const Contact = () => {
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm mb-1">
+              <label className="block text-sm mb-1">
                 Email <span className="text-red-300">*</span>
               </label>
               <input
                 type="email"
-                id="email"
-                name="from_email"
+                name="email"
                 required
                 value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                onChange={handleChange}
                 className="w-full px-4 py-2 rounded-md bg-white/20 border border-white/30 text-white placeholder:text-white/70 focus:outline-none focus:ring-2 focus:ring-blue-300"
                 placeholder="you@example.com"
               />
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm mb-1">
-                Type your message here <span className="text-red-300">*</span>
+              <label className="block text-sm mb-1">
+                Your Message <span className="text-red-300">*</span>
               </label>
               <textarea
-                id="message"
                 name="message"
                 required
                 rows={4}
                 value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                onChange={handleChange}
                 className="w-full px-4 py-2 rounded-md bg-white/20 border border-white/30 text-white placeholder:text-white/70 focus:outline-none focus:ring-2 focus:ring-blue-300"
-                placeholder="Your message..."
-              ></textarea>
+                placeholder="Type your message..."
+              />
             </div>
 
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`w-full py-2 rounded-md font-semibold text-white transition ${
+              className={`w-full py-2 rounded-md font-semibold transition ${
                 isSubmitting
-                  ? 'bg-blue-400 cursor-not-allowed'
-                  : 'bg-blue-600 hover:bg-blue-700'
+                  ? 'bg-blue-400 cursor-not-allowed text-white'
+                  : 'bg-blue-600 hover:bg-blue-700 text-white'
               }`}
             >
               {isSubmitting ? 'Sending...' : 'SUBMIT'}
@@ -156,8 +150,8 @@ const Contact = () => {
         </div>
       </div>
 
-      {/* Floating Coffee Icon in Bottom-Right */}
-      <div className="absolute bottom-9 right-4 z-100">
+      {/* Floating Coffee Icon */}
+      <div className="absolute bottom-9 right-4 z-50">
         <div className="p-3 bg-white/20 backdrop-blur-md rounded-full shadow-lg hover:scale-105 transition duration-900">
           <Coffee className="w-6 h-6 text-red" />
         </div>
