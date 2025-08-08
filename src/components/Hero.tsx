@@ -8,7 +8,7 @@ import {
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen bg-gradient-to-b from-[#231f60] via-[#1a1528] to-gray-900 text-white px-6 py-20 overflow-hidden flex flex-col md:flex-row items-center justify-center gap-10">
+    <section className="relative min-h-screen bg-gradient-to-b from-[#205c65] via-[#07011a] to-gray-900 text-white px-6 py-20 overflow-hidden flex flex-col md:flex-row items-center justify-center gap-10">
 
       {/* Left Content */}
       <div className="z-10 text-center md:text-left max-w-2xl w-full md:w-3/5">
@@ -16,7 +16,7 @@ const Hero = () => {
           Venkata Suresh Mallela
         </h1>
         <p className="text-blue-300 text-base sm:text-lg md:text-xl mb-6 drop-shadow-md">
-          DevOps Engineer focused on automation, infrastructure, and scalable cloud platforms.
+          <strong className="text-cyan-500">DevOps Engineer</strong> focused on automation, infrastructure, and scalable cloud platforms.
         </p>
 
         {/* Buttons */}
@@ -41,7 +41,7 @@ const Hero = () => {
           <a href="https://wa.me/9550814819" target="_blank" rel="noopener noreferrer">
             <FaWhatsapp className="hover:text-green-400 transition" />
           </a>
-          <a href="https://www.linkedin.com/in/venkata-suresh" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/venkata-suresh-mallela/" target="_blank" rel="noopener noreferrer">
             <FaLinkedin className="hover:text-blue-500 transition" />
           </a>
           <a href="https://x.com/" target="_blank" rel="noopener noreferrer">
