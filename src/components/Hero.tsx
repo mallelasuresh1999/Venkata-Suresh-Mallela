@@ -12,10 +12,10 @@ const Hero = () => {
 
       {/* Left Content */}
       <div className="z-10 text-center md:text-left max-w-2xl w-full md:w-3/5">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 drop-shadow-lg">
-          Venkata Suresh Mallela
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-extrabold mb-4 drop-shadow-lg">
+          <span className="text-white-400 text-6xl">V</span>enkata Suresh <span className="text-yellow-400 text-6xl">M</span>allela
         </h1>
-        <p className="text-blue-300 text-base sm:text-lg md:text-xl mb-6 drop-shadow-md">
+        <p className="text-white-300 text-base sm:text-lg md:text-xl mb-6 drop-shadow-md">
           <strong className="text-cyan-500">DevOps Engineer</strong> focused on automation, infrastructure, and scalable cloud platforms.
         </p>
 
